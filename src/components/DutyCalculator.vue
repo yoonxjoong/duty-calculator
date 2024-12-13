@@ -4,7 +4,7 @@
       <!-- Splash Screen -->
       <div
           v-if="showSplash"
-          class="fixed w-full max-w-[430px] inset-0 z-50 bg-gradient-to-br from-blue-500 via-indigo-500 to-purple-600"
+          class="fixed w-full  inset-0 z-50 bg-gradient-to-br from-blue-500 via-indigo-500 to-purple-600"
       >
         <!-- Splash screen content remains the same -->
         <div class="absolute inset-0 opacity-30">
@@ -13,7 +13,7 @@
           <div class="absolute bottom-1/4 left-1/3 w-56 h-56 bg-purple-200 rounded-full blur-3xl"></div>
         </div>
 
-        <div class="relative h-full flex flex-col items-center justify-center p-6 text-center">
+        <div class="relative w-full h-full flex flex-col items-center justify-center p-6 text-center">
           <!-- Splash screen content -->
           <div class="animate-float mb-8">
             <div class="relative">
