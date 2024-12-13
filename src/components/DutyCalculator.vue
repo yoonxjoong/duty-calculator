@@ -1,5 +1,6 @@
 <template>
   <div class="min-h-screen bg-white">
+
     <div class="w-full max-w-[430px] min-h-screen mx-auto bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50">
       <!-- Splash Screen -->
       <div
@@ -166,10 +167,12 @@
                 <span class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">$</span>
                 <input
                     type="number"
+                    inputmode="decimal"
+                    pattern="[0-9]*"
                     v-model.number="productPrice"
                     placeholder="0.00"
-                    class="w-full text-sm bg-white/80 backdrop-blur-sm border border-gray-200 rounded-xl p-3 pl-8
-                         focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent"
+                    class="mobile-input w-full text-base bg-white/80 backdrop-blur-sm border border-gray-200 rounded-xl p-3 pl-8
+                       focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent"
                 />
               </div>
             </div>
@@ -180,10 +183,12 @@
                 <span class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">$</span>
                 <input
                     type="number"
+                    inputmode="decimal"
+                    pattern="[0-9]*"
                     v-model.number="shippingCost"
                     placeholder="0.00"
-                    class="w-full text-sm bg-white/80 backdrop-blur-sm border border-gray-200 rounded-xl p-3 pl-8
-                         focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent"
+                    class="mobile-input w-full text-base bg-white/80 backdrop-blur-sm border border-gray-200 rounded-xl p-3 pl-8
+                       focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent"
                 />
               </div>
             </div>
@@ -369,6 +374,33 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 input[type="number"] {
   -moz-appearance: textfield;
+}
+.mobile-input {
+  font-size: 16px !important; /* Prevents zoom on iOS */
+  -webkit-text-size-adjust: 100%; /* Prevents zoom on iOS */
+  touch-action: manipulation; /* Prevents double-tap zoom */
+}
+
+/* Hide number input spinners */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+/* Prevent zoom on focus */
+input, select, textarea {
+  font-size: 16px !important;
+  max-height: none !important;
+}
+
+@supports (-webkit-touch-callout: none) {
+  input, select, textarea {
+    font-size: 16px !important;
+  }
 }
 </style>
 
