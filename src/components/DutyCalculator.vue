@@ -164,31 +164,36 @@
             <div class="relative">
               <label class="text-xs font-medium text-gray-500 mb-1.5 block">상품 가격</label>
               <div class="relative">
-                <span class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">$</span>
+          <span class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-600 text-base font-medium pointer-events-none">
+            $
+          </span>
                 <input
                     type="number"
                     inputmode="decimal"
                     pattern="[0-9]*"
                     v-model.number="productPrice"
                     placeholder="0.00"
-                    class="mobile-input w-full text-base bg-white/80 backdrop-blur-sm border border-gray-200 rounded-xl p-3 pl-8
-                       focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent"
+                    class="w-full text-base bg-white/80 border border-gray-200 rounded-xl p-3 pl-7
+                   focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent"
                 />
               </div>
             </div>
 
+            <!-- Shipping Cost Input -->
             <div class="relative">
               <label class="text-xs font-medium text-gray-500 mb-1.5 block">배송비</label>
               <div class="relative">
-                <span class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">$</span>
+          <span class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-600 text-base font-medium pointer-events-none">
+            $
+          </span>
                 <input
                     type="number"
                     inputmode="decimal"
                     pattern="[0-9]*"
                     v-model.number="shippingCost"
                     placeholder="0.00"
-                    class="mobile-input w-full text-base bg-white/80 backdrop-blur-sm border border-gray-200 rounded-xl p-3 pl-8
-                       focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent"
+                    class="w-full text-base bg-white/80 border border-gray-200 rounded-xl p-3 pl-7
+                   focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent"
                 />
               </div>
             </div>
@@ -401,6 +406,12 @@ input, select, textarea {
   input, select, textarea {
     font-size: 16px !important;
   }
+}
+
+/* Style for the dollar sign */
+.text-gray-600.font-medium {
+  font-size: 16px;
+  pointer-events: none;
 }
 </style>
 
