@@ -1,67 +1,70 @@
 <template>
   <div class="min-h-screen bg-white">
-    <div class="w-[430px] min-h-screen mx-auto bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50">
-    <!-- Splash Screen -->
-    <div
-        v-if="showSplash"
-        class="fixed w-[430px] left-1/2 -translate-x-1/2 inset-y-0 z-50 bg-gradient-to-br from-blue-500 via-indigo-500 to-purple-600"
-    >
-      <div class="absolute inset-0 opacity-30">
-        <div class="absolute top-1/4 left-1/4 w-48 h-48 bg-white rounded-full blur-3xl"></div>
-        <div class="absolute top-1/3 right-1/4 w-64 h-64 bg-blue-200 rounded-full blur-3xl"></div>
-        <div class="absolute bottom-1/4 left-1/3 w-56 h-56 bg-purple-200 rounded-full blur-3xl"></div>
-      </div>
-
-      <div class="relative h-full flex flex-col items-center justify-center p-6 text-center">
-        <div class="animate-float mb-8">
-          <div class="relative">
-            <div class="absolute inset-0 bg-white/20 rounded-full blur-xl transform scale-110"></div>
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-20 w-20 text-white" fill="none"
-                 viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1"
-                    d="M3 21v-4m0 0H1m2 4L9 15m-5 4V9a6 6 0 0112 0v6m0 0l-4-2m4 2h-4"/>
-            </svg>
-          </div>
+    <div class="w-full max-w-[430px] min-h-screen mx-auto bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50">
+      <!-- Splash Screen -->
+      <div
+          v-if="showSplash"
+          class="fixed w-full max-w-[430px] inset-0 z-50 bg-gradient-to-br from-blue-500 via-indigo-500 to-purple-600"
+      >
+        <!-- Splash screen content remains the same -->
+        <div class="absolute inset-0 opacity-30">
+          <div class="absolute top-1/4 left-1/4 w-48 h-48 bg-white rounded-full blur-3xl"></div>
+          <div class="absolute top-1/3 right-1/4 w-64 h-64 bg-blue-200 rounded-full blur-3xl"></div>
+          <div class="absolute bottom-1/4 left-1/3 w-56 h-56 bg-purple-200 rounded-full blur-3xl"></div>
         </div>
-        <h1 class="text-3xl font-bold text-white mb-3 animate-fade-in">
-          관부가세 계산기
-        </h1>
-        <p class="text-blue-100 text-sm mb-8 animate-fade-in-delay max-w-[200px]">
-          해외 직구, 이제 더 쉽고 정확하게
-        </p>
-        <button
-            @click="startCalculator"
-            class="group px-8 py-3 bg-white/90 backdrop-blur-sm text-blue-600 rounded-full text-sm font-medium
-                 shadow-lg hover:bg-white transition-all duration-300 transform hover:scale-105"
-        >
-          시작하기
-          <span class="inline-block ml-2 transition-transform group-hover:translate-x-1">→</span>
-        </button>
-      </div>
-    </div>
 
-    <!-- Main Calculator -->
-    <div v-if="!showSplash" class="w-full min-h-screen">
-      <!-- Header -->
-      <header class="bg-white/80 backdrop-blur-md shadow-sm border-b border-white/20">
-        <div class="px-4 py-3">
-          <h1 class="text-lg font-bold text-center bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+        <div class="relative h-full flex flex-col items-center justify-center p-6 text-center">
+          <!-- Splash screen content -->
+          <div class="animate-float mb-8">
+            <div class="relative">
+              <div class="absolute inset-0 bg-white/20 rounded-full blur-xl transform scale-110"></div>
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-20 w-20 text-white" fill="none"
+                   viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1"
+                      d="M3 21v-4m0 0H1m2 4L9 15m-5 4V9a6 6 0 0112 0v6m0 0l-4-2m4 2h-4"/>
+              </svg>
+            </div>
+          </div>
+          <h1 class="text-3xl font-bold text-white mb-3 animate-fade-in">
             관부가세 계산기
           </h1>
-          <div class="flex justify-center items-center gap-2 mt-1">
-            <span class="w-2 h-2 rounded-full bg-blue-500"></span>
-            <span class="text-xs text-gray-500">{{ steps[currentStep - 1].title }}</span>
+          <p class="text-blue-100 text-sm mb-8 animate-fade-in-delay max-w-[200px]">
+            해외 직구, 이제 더 쉽고 정확하게
+          </p>
+          <button
+              @click="startCalculator"
+              class="group px-8 py-3 bg-white/90 backdrop-blur-sm text-blue-600 rounded-full text-sm font-medium
+                 shadow-lg hover:bg-white transition-all duration-300 transform hover:scale-105"
+          >
+            시작하기
+            <span class="inline-block ml-2 transition-transform group-hover:translate-x-1">→</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Main Calculator -->
+      <div v-if="!showSplash" class="w-full min-h-screen pb-24">
+        <!-- Header -->
+        <header class="sticky top-0 bg-white/80 backdrop-blur-md shadow-sm border-b border-white/20 z-10">
+          <div class="px-4 py-3">
+            <h1 class="text-lg font-bold text-center bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+              관부가세 계산기
+            </h1>
+            <div class="flex justify-center items-center gap-2 mt-1">
+              <span class="w-2 h-2 rounded-full bg-blue-500"></span>
+              <span class="text-xs text-gray-500">{{ steps[currentStep - 1].title }}</span>
+            </div>
           </div>
-        </div>
 
-        <!-- Progress Bar -->
-        <div class="h-1 bg-gradient-to-r from-blue-500 to-purple-500 transform scale-x-0 origin-left transition-transform duration-500"
-             :style="`transform: scaleX(${(currentStep - 1) / 3})`">
-        </div>
-      </header>
+          <!-- Progress Bar -->
+          <div class="h-1 bg-gradient-to-r from-blue-500 to-purple-500 transform scale-x-0 origin-left transition-transform duration-500"
+               :style="`transform: scaleX(${(currentStep - 1) / 3})`">
+          </div>
+        </header>
 
-      <!-- Main Content -->
-      <div class="flex-1 p-4 overflow-auto">
+        <!-- Main Content -->
+        <div class="flex-1 p-4 overflow-y-auto">
+
         <!-- Step 1: Country Selection -->
         <div v-if="currentStep === 1" class="space-y-6 animate-fade-in">
           <div class="text-center mb-6">
@@ -252,12 +255,12 @@
       </div>
 
       <!-- Bottom Navigation -->
-      <div class="fixed bottom-0 w-[430px] bg-white/80 backdrop-blur-md border-t border-gray-100 p-4 z-40">
-        <div class="flex gap-3">
+      <div class="fixed bottom-0 left-0 right-0 bg-white/80 backdrop-blur-md border-t border-gray-100 p-4 z-40">
+        <div class="max-w-[430px] mx-auto flex gap-3">
           <button
               @click="goToPreviousStep"
               class="flex-1 py-3 px-4 rounded-xl bg-gray-100 hover:bg-gray-200 text-gray-700 text-sm font-medium transition-colors
-                   disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
               :disabled="currentStep === 1"
           >
             <svg class="w-4 h-4 transform rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -309,17 +312,17 @@
       </div>
 
       <!-- Loading Overlay -->
-      <div
-          v-if="isLoading"
-          class="fixed inset-0 bg-black/30 backdrop-blur-sm z-50 flex items-center justify-center"
-      >
-        <div class="bg-white/90 backdrop-blur-sm p-6 rounded-2xl shadow-xl text-center max-w-[200px] mx-4">
-          <div class="relative mb-4">
-            <div class="w-12 h-12 mx-auto border-4 border-blue-200 border-t-blue-600 rounded-full animate-spin"></div>
-            <div class="absolute inset-0 transform rotate-45">
-              <div class="w-12 h-12 mx-auto border-4 border-transparent border-t-purple-600 rounded-full animate-spin"></div>
+        <div
+            v-if="isLoading"
+            class="fixed inset-0 bg-black/30 backdrop-blur-sm z-50 flex items-center justify-center"
+        >
+          <div class="bg-white/90 backdrop-blur-sm p-6 rounded-2xl shadow-xl text-center max-w-[200px] mx-4">
+            <div class="relative mb-4">
+              <div class="w-12 h-12 mx-auto border-4 border-blue-200 border-t-blue-600 rounded-full animate-spin"></div>
+              <div class="absolute inset-0 transform rotate-45">
+                <div class="w-12 h-12 mx-auto border-4 border-transparent border-t-purple-600 rounded-full animate-spin"></div>
+              </div>
             </div>
-          </div>
           <p class="text-sm text-gray-600">계산 중입니다...</p>
         </div>
       </div>
